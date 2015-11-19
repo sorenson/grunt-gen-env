@@ -1,6 +1,6 @@
 # grunt-gen-env
 
-> Generating environment files from a configuration file.
+> Generating environment files from a configuration file.  Works great with http://stout.is/.
 
 ## Getting Started
 This plugin requires Grunt `~0.4.5`
@@ -14,7 +14,7 @@ npm install grunt-gen-env --save-dev
 Once the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:
 
 ```js
-grunt.loadNpmTasks('gen-env');
+grunt.loadNpmTasks('grunt-gen-env');
 ```
 
 ## The "grunt_gen_env" task
@@ -26,64 +26,67 @@ In your project's Gruntfile, add a section named `grunt_gen_env` to the data obj
 grunt.initConfig({
   grunt_gen_env: {
     options: {
-      // Task-specific options go here.
+      // If you don't specify any options, they will use the values
+      // listed below.
+      src_file: 'default.environments.json',
+      environment: 'development',
+      target_directory: '.',
+      file_name: 'environment.js'
     },
-    your_target: {
-      // Target-specific file lists and/or options go here.
-    },
+    development: {
+      // Label this block whatever you want and add any environment
+      // specific options from above here.  Any options not specified
+      // here will fall back to the defaults.
+    }
   },
 });
 ```
 
 ### Options
 
-#### options.separator
+#### options.src_file
 Type: `String`
-Default value: `',  '`
+Default value: `'default.environments.json'`
 
-A string value that is used to do something with whatever.
+Path of the `json` file represented as a `String`.
 
-#### options.punctuation
+#### options.environment
+Type: `String`
+Default value: `'development'`
+
+The `Object` name of the environment that is being used in the `options.src_file`.  This value needs to be a `String`.
+
+#### options.file_name
+Type: `String`
+Default value: `'environment.js'`
+
+`String` name of the file with `js` extension appended to it.
+
+#### options.target_directory
 Type: `String`
 Default value: `'.'`
 
-A string value that is used to do something else with whatever else.
+The `String` name/path of where the `environment file` will be written to.
 
-### Usage Examples
 
-#### Default Options
-In this example, the default options are used to do something with whatever. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result would be `Testing, 1 2 3.`
+### Sample Environments File
 
-```js
-grunt.initConfig({
-  gen_env: {
-    options: {},
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
-});
 ```
-
-#### Custom Options
-In this example, custom options are used to do something else with whatever else. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result in this case would be `Testing: 1 2 3 !!!`
-
-```js
-grunt.initConfig({
-  gen_env: {
-    options: {
-      separator: ': ',
-      punctuation: ' !!!',
-    },
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
+{
+  "local": {
+    "api": "http://local.api.com",
+    "auth": "http://local.auth.com"
   },
-});
+  "development": {
+    "api": "http://dev.api.com",
+    "auth": "http://dev.auth.com"
+  },
+  "production": {
+    "api": "http://api.com",
+    "auth": "http://auth.com"
+  }
+}
 ```
-
-## Contributing
-In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
 _(Nothing yet)_

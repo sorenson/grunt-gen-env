@@ -103,4 +103,4 @@ The `String` name/path of where the `environment file` will be written to.
 ```
 
 ## Release History
-_(Nothing yet)_
+0.1.1 - [Official First Release](https://github.com/sorenson/grunt-gen-env/releases/tag/0.1.1) - 11/20/2015

@@ -1,7 +1,7 @@
 {
   "name": "grunt-gen-env",
   "description": "Generating environment files from a configuration file.",
-  "version": "0.1.1",
+  "version": "0.1.3",
   "homepage": "https://github.com/sorenson/grunt-gen-env",
   "author": {
     "name": "Sorenson Media",

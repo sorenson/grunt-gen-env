@@ -16,8 +16,10 @@ module.exports = function(grunt) {
     // Configuration to be run (and then tested).
     grunt_gen_env: {
       options: {
-        src_file: 'test/test.environments.json',
-        file_name: 'environment.js'
+        assign_to_variable: true,
+        variable_name: 'environment',
+        src_file: 'test_environments.json',
+        file_name: 'environment.js',
       },
       local: {
         options: {

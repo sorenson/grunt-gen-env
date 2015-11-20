@@ -1,0 +1,14 @@
+{
+  "local": {
+    "api": "https://api.local.com",
+    "auth": "https://auth.local.com"
+  },
+  "development": {
+    "api": "https://api.dev.com",
+    "auth": "https://auth.dev.com"
+  },
+  "production": {
+    "api": "https://api.prod.com",
+    "auth": "https://auth.prod.com"
+  }
+}

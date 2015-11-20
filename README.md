@@ -28,6 +28,8 @@ grunt.initConfig({
     options: {
       // If you don't specify any options, they will use the values
       // listed below.
+      assign_to_variable: false,
+      variable_name: 'ENV',
       src_file: 'default.environments.json',
       environment: 'development',
       target_directory: '.',
@@ -44,11 +46,23 @@ grunt.initConfig({
 
 ### Options
 
+#### options.assign_to_variable
+Type: `Boolean`
+Default value: `false`
+
+By default the environment isn't assigned to a variable. To assign the object to a variable, assign this value to true.
+
+#### options.variable_name
+Type: `String`
+Default value: `'ENV'`
+
+If the value of `'assign_to_variable'` is `'true'`, this `'variable_name'` is the name of the variable that the environment Object will be assigned to.
+
 #### options.src_file
 Type: `String`
-Default value: `'default.environments.json'`
+Default value: `'environments.json'`
 
-Path of the `json` file represented as a `String`.
+Path of the `json` file represented as a `String`. If this file doesn't exist, it will try `'default.environments.json'` or the `'src_file'` you've assigned with a prefix of `'default.'`
 
 #### options.environment
 Type: `String`

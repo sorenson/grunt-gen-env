@@ -17,6 +17,7 @@ module.exports = function(grunt) {
     // Merge task-specific and/or target-specific options with these defaults.
     var options = this.options({
       assign_to_variable: false,
+      global_variable: false,
       variable_name: 'ENV',
       src_file: 'environments.json',
       environment: 'development',
@@ -42,7 +43,11 @@ module.exports = function(grunt) {
 
     // Extract environment specific settings.
     if(options.assign_to_variable) {
-      var file_contents = generated_comment +'var '+ options.variable_name +' = '+ JSON.stringify(environments_content[options.environment]);
+      if(options.global_variable){
+        var file_contents = generated_comment + options.variable_name +' = '+ JSON.stringify(environments_content[options.environment]);
+      }else{
+        var file_contents = generated_comment +'var '+ options.variable_name +' = '+ JSON.stringify(environments_content[options.environment]);
+      }
     } else {
       var file_contents = generated_comment + JSON.stringify(environments_content[options.environment]);
     }

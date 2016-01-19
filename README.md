@@ -29,6 +29,7 @@ grunt.initConfig({
       // If you don't specify any options, they will use the values
       // listed below.
       assign_to_variable: false,
+      global_variable: false,
       variable_name: 'ENV',
       src_file: 'default.environments.json',
       environment: 'development',
@@ -51,6 +52,12 @@ Type: `Boolean`
 Default value: `false`
 
 By default the environment isn't assigned to a variable. To assign the object to a variable, assign this value to true.
+
+#### options.global_variable
+Type: `Boolean`
+Default value: `false`
+
+By default the variable isn't a global variable. To make the variable global, assign this value to true.
 
 #### options.variable_name
 Type: `String`
